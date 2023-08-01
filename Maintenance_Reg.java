@@ -2,17 +2,30 @@
 package Main;
 import javax.swing.*;
 
+/**
+ *<p>
+ * The Maintenance_Reg class is the class that manages the model for the maintenance of the regular vending machine. 
+ * It prompts the user to be able to restock the quantities of the slots, to collect the money earned by the vending machine
+ * and also prints the summary of the transactions it has done since the last restocking.
+ */
 public class Maintenance_Reg extends javax.swing.JFrame {
     private RegularItemsTableModel model; 
     private Regular_Items regularItemsFrame;
     private MoneyBox moneyBoxFrame;
-    
+
+    /**
+     *<p>
+     * Intializes the status of the current regular vending machine.
+     */
     public Maintenance_Reg() {
         initComponents();
         model = new RegularItemsTableModel();
 
     }
-   
+   /**
+    * <p>
+    * Instantiates the window for the maintenance related view components.
+    */
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
@@ -30,6 +43,10 @@ public class Maintenance_Reg extends javax.swing.JFrame {
         Restock_Items.setFont(new java.awt.Font("Segoe UI", 1, 18)); 
         Restock_Items.setText("Restock Items");
         Restock_Items.addActionListener(new java.awt.event.ActionListener() {
+            /**
+             * <p>
+             * This anonymous class will recognize when the button is clicked
+             */
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Restock_ItemsActionPerformed(evt);
             }
@@ -39,6 +56,10 @@ public class Maintenance_Reg extends javax.swing.JFrame {
         Proceed.setFont(new java.awt.Font("Segoe UI", 1, 18)); 
         Proceed.setText("Proceed");
         Proceed.addActionListener(new java.awt.event.ActionListener() {
+            /**
+             * <p>
+             * This anonymous class will recognize when the button is clicked
+             */
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProceedActionPerformed(evt);
             }
@@ -48,6 +69,10 @@ public class Maintenance_Reg extends javax.swing.JFrame {
         Collect_Money.setFont(new java.awt.Font("Segoe UI", 1, 18)); 
         Collect_Money.setText("Collect Money");
         Collect_Money.addActionListener(new java.awt.event.ActionListener() {
+            /**
+             * <p>
+             * This anonymous class will recognize when the button is clicked
+             */
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Collect_MoneyActionPerformed(evt);
             }
@@ -58,6 +83,10 @@ public class Maintenance_Reg extends javax.swing.JFrame {
         Print_Summary.setText("Print Summary");
         Print_Summary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+               /**
+                * <p>
+                * This anonymous class will recognize when the button is clicked
+                */
                 Print_SummaryActionPerformed(evt);
             }
         });
@@ -102,9 +131,14 @@ public class Maintenance_Reg extends javax.swing.JFrame {
 
         pack();
     }
-
+    /**
+     * <p>
+     * Restocks the slot given the slot number, the name, calories, and the price of the item being restocked with the default quantity of 10. 
+     * Will reprompt the user to re-input valid numbers for the slot number, name, calories or price if an empty input is given. 
+     * Will show an error message if at least 1 of the inputs is not a valid number input.
+     */
     private void Restock_ItemsActionPerformed(java.awt.event.ActionEvent evt) {
-String slotInput = JOptionPane.showInputDialog(this, "Enter slot number:");
+        String slotInput = JOptionPane.showInputDialog(this, "Enter slot number:");
         if (slotInput == null || slotInput.isEmpty()) {
             return;
         }
@@ -148,7 +182,11 @@ String slotInput = JOptionPane.showInputDialog(this, "Enter slot number:");
             JOptionPane.showMessageDialog(this, "Invalid input. Please enter valid numbers.");
         }                               
     }
-
+    /**
+     * <p>
+     * Will instantiate a new MoneyBox object if it does not have one already. 
+     * Will then move on to the next window which will show the status of the money box whilst closing the current window.
+     */
     private void ProceedActionPerformed(java.awt.event.ActionEvent evt) {
       
         if (moneyBoxFrame == null) {
@@ -158,10 +196,19 @@ String slotInput = JOptionPane.showInputDialog(this, "Enter slot number:");
         moneyBoxFrame.setVisible(true); // Show the MoneyBox frame
         this.setVisible(false); // Hide the Maintenance_Reg frame
     }
-
+    
+    /**
+     * <p>
+     * Proceeds to collect the current cash stored in the money box
+     */
     private void Collect_MoneyActionPerformed(java.awt.event.ActionEvent evt) {
         JOptionPane.showMessageDialog(this, "Money collected successfully.");
     }
+
+    /**
+     * <p>
+     * Prints the transaction history of the machine line by line and prints the total amount earned at the end.
+     */
     private void Print_SummaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print_SummaryActionPerformed
         StringBuilder summary = new StringBuilder();
         for (int i = 0; i < model.getRowCount(); i++) {
