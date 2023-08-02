@@ -2,7 +2,13 @@
 package Main;
 
 import javax.swing.JOptionPane;
-
+/**
+*<p>
+ * MoneyBox class simulates a money box where users can insert money
+ * and buy regular items using the inserted amount. It provides buttons to insert denominations
+ * of money and displays the total amount inserted. The user can then proceed to buy items or
+ * cancel the transaction.
+ */
 public class MoneyBox extends javax.swing.JFrame {
       private Maintenance_Reg maintenanceReg;
       
@@ -10,6 +16,9 @@ public class MoneyBox extends javax.swing.JFrame {
     private int changeAmount = 0;
     private Regular_Items regularItemsFrame;
 
+/**
+* Creates a new MoneyBox instance and initializes the GUI components.
+ */
     public MoneyBox() {
         initComponents();
     }
@@ -236,32 +245,46 @@ public class MoneyBox extends javax.swing.JFrame {
         pack();
     }
     
-    
+/**
+* Updates the total amount by adding the specified amount to the existing total.
+* @param amount The amount to add to the total.
+*/
  private void updateTotal(int amount) {
         totalAmount += amount;
         Total_tf.setText(Integer.toString(totalAmount));
     }
 
+/**
+* Retrieves the total amount of money inserted.
+* @return The total amount of money inserted.
+*/
  public int getTotalAmount() {
         return totalAmount;
     }
-
+/**
+* Sets the total amount of money inserted.
+* @param totalAmount The new total amount of money inserted.
+*/
     public void setTotalAmount(int totalAmount) {
         this.totalAmount = totalAmount;
         Total_tf.setText(Integer.toString(totalAmount));
     }
-
+/**
+* Retrieves the change amount (remaining money after buying items).
+* @return The change amount.
+*/
     public int getChangeAmount() {
         return changeAmount;
     }
-
+ /**
+* Sets the change amount (remaining money after buying items).
+* @param changeAmount The new change amount.
+*/
     public void setChangeAmount(int changeAmount) {
         this.changeAmount = changeAmount;
         Change_tf.setText(Integer.toString(changeAmount));
     }
-
-
-        
+  
     private void OneActionPerformed(java.awt.event.ActionEvent evt) {
        updateTotal(1);
     }
