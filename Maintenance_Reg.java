@@ -3,7 +3,6 @@ package Main;
 import javax.swing.*;
 
 /**
- *<p>
  * The Maintenance_Reg class is the class that manages the model for the maintenance of the regular vending machine. 
  * It prompts the user to be able to restock the quantities of the slots, to collect the money earned by the vending machine
  * and also prints the summary of the transactions it has done since the last restocking.
