@@ -1,9 +1,14 @@
 
 package Main;
 import javax.swing.*;
-
+/** 
+ * The Vm_Home3 class serves as the Testing page for regular vending machines.
+ * It extends javax.swing.JFrame for GUI elements.
+ */
 public class Vm_Home3 extends javax.swing.JFrame {
-
+/** 
+ * This method initializes the GUI elements required for this window
+ */
     public Vm_Home3() {
         initComponents();
     }
@@ -84,12 +89,20 @@ public class Vm_Home3 extends javax.swing.JFrame {
 
         pack();
     }
-
+/** 
+ * <p>
+ * This method displays the features screen of the regular vending machine
+ * @param evt The action is triggered when the button is clicked.
+ */
     private void FeaturesActionPerformed(java.awt.event.ActionEvent evt) {
         moneyBox.setVisible(true);
         this.setVisible(false);
     }
-
+/** 
+ * <p>
+ * This method displays the maintenance screen of the regular vending machine
+ * @param evt The action is triggered when the button is clicked.
+ */
     private void MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {
      new Maintenance_Reg().setVisible(true);
      this.setVisible(false);
