@@ -3,11 +3,21 @@ package Main;
 
 import javax.swing.JOptionPane;
 
+/**
+ * <p>
+ * MoneyBoxSpecial class simulates a money box where users can insert money
+ * and buy special items using the inserted amount. It provides buttons to insert denominations
+ * of money and displays the total amount inserted. The user can then proceed to buy items or
+ * cancel the transaction.
+ */
 public class MoneyBoxSpecial extends javax.swing.JFrame {
    private int totalAmount = 0;
     private int changeAmount = 0;
     private Special_Items SpecialItemsFrame;
 
+   /**
+    * Creates a new MoneyBoxSpecial instance and initializes the GUI components.
+    */
     public MoneyBoxSpecial() {
         initComponents();
     }
@@ -235,66 +245,112 @@ public class MoneyBoxSpecial extends javax.swing.JFrame {
     }
 
     
-    
+/**
+* Updates the total amount by adding the specified amount to the existing total.
+* @param amount The amount to add to the total.
+*/
  private void updateTotal(int amount) {
         totalAmount += amount;
         Total_tf.setText(Integer.toString(totalAmount));
     }
-
+/**
+* Retrieves the total amount of money inserted.
+* @return The total amount of money inserted.
+*/
  public int getTotalAmount() {
         return totalAmount;
     }
-
+/**
+* Sets the total amount of money inserted.
+* @param totalAmount The new total amount of money inserted.
+*/
     public void setTotalAmount(int totalAmount) {
         this.totalAmount = totalAmount;
         Total_tf.setText(Integer.toString(totalAmount));
     }
-
+/**
+* Retrieves the change amount (remaining money after buying items).
+* @return The change amount.
+*/
     public int getChangeAmount() {
         return changeAmount;
     }
-
+/**
+* Sets the change amount (remaining money after buying items).
+* @param changeAmount The new change amount.
+*/
     public void setChangeAmount(int changeAmount) {
         this.changeAmount = changeAmount;
         Change_tf.setText(Integer.toString(changeAmount));
     }
 
-
-        
+/**
+* Adds a total of (1) to the total amount.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void OneActionPerformed(java.awt.event.ActionEvent evt) {
        updateTotal(1);
     }
+   /**
+* Adds a total of (5) to the total amount.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void FiveActionPerformed(java.awt.event.ActionEvent evt) {
        updateTotal(5);
     }
-
+   /**
+* Adds a total of (10) to the total amount.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void TenActionPerformed(java.awt.event.ActionEvent evt) {
         updateTotal(10);
     }
-
+   /**
+* Adds a total of (20) to the total amount.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void twentyActionPerformed(java.awt.event.ActionEvent evt) {
        updateTotal(20);
     }
-
+   /**
+* Adds a total of (50) to the total amount.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void fiftyActionPerformed(java.awt.event.ActionEvent evt) {
         updateTotal(50);
     }
-
+/**
+* Adds a total of (100) to the total amount.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void One_HundredActionPerformed(java.awt.event.ActionEvent evt) {
         updateTotal(100);
     }
-
+/**
+* Adds a total of (200) to the total amount.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void two_hundredActionPerformed(java.awt.event.ActionEvent evt) {
        updateTotal(200);
     }
+   /**
+* Adds a total of (500) to the total amount.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void Five_HundredActionPerformed(java.awt.event.ActionEvent evt) {
         updateTotal(500);
     }
-
+/**
+* Adds a total of (1000) to the total amount.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void One_thousandActionPerformed(java.awt.event.ActionEvent evt) {
         updateTotal(1000);
     }
-
+/**
+* Proceeds with the transaction with the inserted cash.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void BuyActionPerformed(java.awt.event.ActionEvent evt) {
        if (SpecialItemsFrame == null) {
             SpecialItemsFrame = new Special_Items(this);
@@ -311,6 +367,10 @@ public class MoneyBoxSpecial extends javax.swing.JFrame {
         SpecialItemsFrame.setVisible(true);
         this.setVisible(false);
     }
+   /**
+* Proceeds to cancel the transaction.
+* @param evt The action is triggered whern the button is clicked.
+*/
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
         int bal = totalAmount + changeAmount;
         if(changeAmount > 0){
