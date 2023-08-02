@@ -1,11 +1,16 @@
 package Main;
 
 import javax.swing.*;
-
+/** 
+ * The Vm_Home class serves as main executable of the entire project.
+ * It extends javax.swing.JFrame for GUI elements.
+ */
 public class Vm_Home extends javax.swing.JFrame {
  private boolean regularButtonClicked = false;
     private boolean specialButtonClicked = false;
-
+/** 
+ * This method initializes the GUI elements required for this window
+ */
     public Vm_Home() {
         initComponents();
         
@@ -101,13 +106,21 @@ public class Vm_Home extends javax.swing.JFrame {
 
         pack();
     }
-
+/** 
+ * <p>
+ * This method calls to the create window screen
+ * @param evt The action is triggered when the button is clicked.
+ */
     private void CreateActionPerformed(java.awt.event.ActionEvent evt) {
         Vm_Home2 vmHome2 = new Vm_Home2(this);
         vmHome2.setVisible(true);
         this.setVisible(false);
     }
-
+/** 
+ * <p>
+ * This method calls to the test(s) window screen
+ * @param evt The action is triggered when the button is clicked.
+ */
     private void TestActionPerformed(java.awt.event.ActionEvent evt) {
  if (regularButtonClicked) {
             Vm_Home3 vmHome3 = new Vm_Home3();
@@ -121,14 +134,27 @@ public class Vm_Home extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No vending machine created yet, please create and select Regular or Special.");
         }
     }
-
+/** 
+ * <p>
+ * This method terminates the program
+ * @param evt The action is triggered when the button is clicked.
+ */
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
     }
+ /** 
+ * <p>
+ * This method is to set the boolean opposite of its current state.
+ * @param clicked is a boolean that is either true or false.
+ */
     public void setSpecialButtonClicked(boolean clicked) {
         specialButtonClicked = clicked;
     }
-    
+    /** 
+ * <p>
+ * This method is to set the boolean opposite of its current state.
+ * @param clicked is a boolean that is either true or false.
+ */
       public void setRegularButtonClicked(boolean clicked) {
         regularButtonClicked = clicked;
     }
