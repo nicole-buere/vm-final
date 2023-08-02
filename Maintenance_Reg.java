@@ -21,10 +21,6 @@ public class Maintenance_Reg extends javax.swing.JFrame {
         model = new RegularItemsTableModel();
 
     }
-   /**
-    * <p>
-    * Instantiates the window for the maintenance related view components.
-    */
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
@@ -42,10 +38,6 @@ public class Maintenance_Reg extends javax.swing.JFrame {
         Restock_Items.setFont(new java.awt.Font("Segoe UI", 1, 18)); 
         Restock_Items.setText("Restock Items");
         Restock_Items.addActionListener(new java.awt.event.ActionListener() {
-            /**
-             * <p>
-             * This anonymous class will recognize when the button is clicked
-             */
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Restock_ItemsActionPerformed(evt);
             }
@@ -55,10 +47,6 @@ public class Maintenance_Reg extends javax.swing.JFrame {
         Proceed.setFont(new java.awt.Font("Segoe UI", 1, 18)); 
         Proceed.setText("Proceed");
         Proceed.addActionListener(new java.awt.event.ActionListener() {
-            /**
-             * <p>
-             * This anonymous class will recognize when the button is clicked
-             */
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProceedActionPerformed(evt);
             }
@@ -68,10 +56,6 @@ public class Maintenance_Reg extends javax.swing.JFrame {
         Collect_Money.setFont(new java.awt.Font("Segoe UI", 1, 18)); 
         Collect_Money.setText("Collect Money");
         Collect_Money.addActionListener(new java.awt.event.ActionListener() {
-            /**
-             * <p>
-             * This anonymous class will recognize when the button is clicked
-             */
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Collect_MoneyActionPerformed(evt);
             }
@@ -82,10 +66,6 @@ public class Maintenance_Reg extends javax.swing.JFrame {
         Print_Summary.setText("Print Summary");
         Print_Summary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-               /**
-                * <p>
-                * This anonymous class will recognize when the button is clicked
-                */
                 Print_SummaryActionPerformed(evt);
             }
         });
