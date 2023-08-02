@@ -3,18 +3,36 @@ package Main;
 import java.util.List;
 import javax.swing.*;
 
-
+/**
+ * This class will instantiate each object row that is to be displayed 
+ * in the SpecialItemTableModel class.
+ */
 public class Special_Items extends javax.swing.JFrame {
         private MoneyBoxSpecial moneyBoxSFrame;
         private SpecialItemsTableModel model; // Your existing table model instance
 
-
+    /**
+     * <p>
+     * This constructor will set the model in which the Object arrays  
+     * will be viewed and also calls the method that will instantiate 
+     * the components for the GUI.
+     *
+     * @param model is an object generated from the SpecialItemsTableModel.
+     */
      public Special_Items(SpecialItemsTableModel model) {
         initComponents();
         this.model = model;
         jTable1.setModel(model); 
     }
-        
+
+    /**
+     * <p>
+     * This constructor will set the Money Box and also regenerates the model   
+     * into a new blank one and also calls the method that will instantiate 
+     * the components for the GUI.
+     *
+     * @param moneyBoxSFrame is an object generated from the MoneyBoxSpecial class.
+     */
     public Special_Items(MoneyBoxSpecial moneyBoxSFrame) {
         initComponents();
         this.moneyBoxSFrame = moneyBoxSFrame;
@@ -24,6 +42,13 @@ public class Special_Items extends javax.swing.JFrame {
         JTable table = new JTable(model);
         jTable1.setModel(model);
     }
+
+    /**
+     * <p>
+     * This method will update the data saved on the table model.
+     *
+     * @param data is an Object Array of the current row.
+     */
     public void updateTableData(List<Object[]> data) {
         
         model.setRowCount(0);
@@ -130,8 +155,15 @@ public class Special_Items extends javax.swing.JFrame {
         pack();
     }
 
+    /**
+     * Action performed when the "Buy" button is clicked.
+     * Proceeds to the insert cash window whilst decreasing the amount
+     * displayed on the current window for the selected item.
+     *
+     * @param evt The action event triggered when the button is clicked.
+     */
     private void BuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyActionPerformed
- int selectedRow = jTable1.getSelectedRow();
+        int selectedRow = jTable1.getSelectedRow();
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Please select an item from the table.");
             return;
@@ -164,6 +196,12 @@ public class Special_Items extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Action performed when the "Cancel" button is clicked.
+     * Proceeds to the cancel the transaction.
+     *
+     * @param evt The action event triggered when the button is clicked.
+     */
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {
         moneyBoxSFrame.setVisible(true);
         this.dispose();
