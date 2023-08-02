@@ -3,11 +3,16 @@ package Main;
 
 import javax.swing.JOptionPane;
 import javax.swing.*;
-
+/** 
+ * The Vm_Home2 class serves as the create screen of the vending machines.
+ * It extends javax.swing.JFrame for GUI elements.
+ */
 public class Vm_Home2 extends javax.swing.JFrame {
 
     private Vm_Home parentFrame;
-
+/** 
+ * This method initializes the GUI elements required for this window
+ */
     public Vm_Home2(Vm_Home parentFrame) {
         initComponents();
         this.parentFrame = parentFrame;
@@ -89,14 +94,22 @@ public class Vm_Home2 extends javax.swing.JFrame {
 
         pack();
     }
-
+/** 
+ * <p>
+ * This method creates an instance of a regular vending machine
+ * @param evt The action is triggered when the button is clicked.
+ */
     private void RegularActionPerformed(java.awt.event.ActionEvent evt) {
         JOptionPane.showMessageDialog(this, "Regular vending machine created");
         parentFrame.setRegularButtonClicked(true); 
         parentFrame.setVisible(true);
         this.dispose();
     }
-
+/** 
+ * <p>
+ * This method creates an instance of a special vending machine
+ * @param evt The action is triggered when the button is clicked.
+ */
     private void SpecialActionPerformed(java.awt.event.ActionEvent evt) {
         JOptionPane.showMessageDialog(this, "Special vending machine created");
         parentFrame.setSpecialButtonClicked(true); 
