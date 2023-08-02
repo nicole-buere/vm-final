@@ -1,11 +1,10 @@
+package Main;
+import javax.swing.*;
 /**
  * This class represents a maintenance window for managing special items in a menu.
  * It allows the user to restock items, collect money, and print a summary of sold items.
  * The class extends javax.swing.JFrame and provides a graphical user interface.
  */
-package Main;
-import javax.swing.*;
-
 public class Maintenance_Special extends javax.swing.JFrame {
     private SpecialItemsTableModel model; 
     private Special_Items SpecItemsFrame;
