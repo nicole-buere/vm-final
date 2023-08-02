@@ -1,4 +1,8 @@
-
+/**
+ * This class represents a maintenance window for managing special items in a menu.
+ * It allows the user to restock items, collect money, and print a summary of sold items.
+ * The class extends javax.swing.JFrame and provides a graphical user interface.
+ */
 package Main;
 import javax.swing.*;
 
@@ -6,7 +10,10 @@ public class Maintenance_Special extends javax.swing.JFrame {
     private SpecialItemsTableModel model; 
     private Special_Items SpecItemsFrame;
     private MoneyBox moneyBoxFrame;
-    
+    /**
+     * Creates a new instance of the Maintenance_Special class.
+     * Initializes the graphical components and creates a SpecialItemsTableModel.
+     */
     public Maintenance_Special() {
         initComponents();
         model = new SpecialItemsTableModel();
@@ -103,7 +110,13 @@ public class Maintenance_Special extends javax.swing.JFrame {
 
         pack();
     }
-
+/**
+     * Action performed when the "Restock Items" button is clicked.
+     * Prompts the user to input slot number, item name, calories, and price for restocking.
+     * Adds the new item data to the special items table and updates the Special_Items frame.
+     *
+     * @param evt The action event triggered when the button is clicked.
+     */
     private void Restock_ItemsActionPerformed(java.awt.event.ActionEvent evt) {
 String slotInput = JOptionPane.showInputDialog(this, "Enter slot number:");
         if (slotInput == null || slotInput.isEmpty()) {
@@ -153,7 +166,12 @@ String slotInput = JOptionPane.showInputDialog(this, "Enter slot number:");
             JOptionPane.showMessageDialog(this, "Invalid input. Please enter valid numbers.");
         }                               
     }
-
+/**
+     * Action performed when the "Proceed" button is clicked.
+     * Opens the MoneyBox frame to allow the user to collect money from the vending machine.
+     *
+     * @param evt The action event triggered when the button is clicked.
+     */
     private void ProceedActionPerformed(java.awt.event.ActionEvent evt) {
      
         if (moneyBoxFrame == null) {
@@ -163,11 +181,21 @@ String slotInput = JOptionPane.showInputDialog(this, "Enter slot number:");
         moneyBoxFrame.setVisible(true); 
         this.setVisible(false); 
     }
-
+ /**
+     * Action performed when the "Collect Money" button is clicked.
+     * Displays a message dialog to inform the user that money has been collected successfully.
+     *
+     * @param evt The action event triggered when the button is clicked.
+     */
     private void Collect_MoneyActionPerformed(java.awt.event.ActionEvent evt) {
         JOptionPane.showMessageDialog(this, "Money collected successfully.");
     }
-
+ /**
+     * Action performed when the "Print Summary" button is clicked.
+     * Generates a summary of items sold and displays it in a message dialog.
+     *
+     * @param evt The action event triggered when the button is clicked.
+     */
     private void Print_SummaryActionPerformed(java.awt.event.ActionEvent evt) {
         StringBuilder summary = new StringBuilder();
         for (int i = 0; i < model.getRowCount(); i++) {
