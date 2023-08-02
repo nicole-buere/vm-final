@@ -4,7 +4,6 @@ package Main;
 import javax.swing.JOptionPane;
 
 /**
- * <p>
  * MoneyBoxSpecial class simulates a money box where users can insert money
  * and buy special items using the inserted amount. It provides buttons to insert denominations
  * of money and displays the total amount inserted. The user can then proceed to buy items or
