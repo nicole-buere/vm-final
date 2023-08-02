@@ -3,18 +3,36 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
+/**
+ * This class will instantiate each object row that is to be displayed 
+ * in the RegularItemTableModel class.
+ */
 public class Regular_Items extends javax.swing.JFrame {
         private MoneyBox moneyBoxFrame;
          private RegularItemsTableModel model; 
 
-
+    /**
+     * <p>
+     * This constructor will set the model in which the Object arrays  
+     * will be viewed and also calls the method that will instantiate 
+     * the components for the GUI.
+     *
+     * @param model is an object generated from the RegularItemsTableModel class.
+     */
     public Regular_Items(RegularItemsTableModel model) {
         initComponents();
         this.model = model;
         jTable1.setModel(model); 
     }
 
- 
+    /**
+     * <p>
+     * This constructor will set the Money Box and also regenerates the model   
+     * into a new blank one and also calls the method that will instantiate 
+     * the components for the GUI.
+     *
+     * @param moneyBoxFrame is an object generated from the MoneyBox class.
+     */
     public Regular_Items(MoneyBox moneyBoxFrame) {
         initComponents();
         this.moneyBoxFrame = moneyBoxFrame;
@@ -23,12 +41,27 @@ public class Regular_Items extends javax.swing.JFrame {
 
         jTable1.setModel(model);
     }
-    
+        
+    /**
+     * <p>
+     * This method will re-add the List of Object Arrays into the new model.
+     *
+     * @param slot is the slot number of the current Object Array.
+     * @param name is the name of the current Object Array.
+     * @param calories is the calorie count of the current Object Array.
+     * @param quantity is the quantity count of the current Object Array.
+     * @param price is the price of the current Object Array.
+     */
     public void addRestockedItem(int slot, String name, int calories, int quantity, int price) {
         model.addRow(new Object[]{slot, name, calories, quantity, price});
     }
     
-
+    /**
+     * <p>
+     * This method will update the data saved on the table model.
+     *
+     * @param data is an Object Array of the current row.
+     */
     public void updateTableData(List<Object[]> data) {
         model.setRowCount(0);
 
@@ -132,9 +165,15 @@ public class Regular_Items extends javax.swing.JFrame {
 
         pack();
     }
-
+    /**
+     * Action performed when the "Buy" button is clicked.
+     * Proceeds to the insert cash window whilst decreasing the amount
+     * displayed on the current window for the selected item.
+     *
+     * @param evt The action event triggered when the button is clicked.
+     */
     private void BuyActionPerformed(java.awt.event.ActionEvent evt) {
- int selectedRow = jTable1.getSelectedRow();
+        int selectedRow = jTable1.getSelectedRow();
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Please select an item from the table.");
             return;
@@ -168,6 +207,12 @@ public class Regular_Items extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Action performed when the "Cancel" button is clicked.
+     * Proceeds to the cancel the transaction.
+     *
+     * @param evt The action event triggered when the button is clicked.
+     */
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {
         moneyBoxFrame.setVisible(true);
         this.dispose();
